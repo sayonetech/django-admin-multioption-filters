@@ -11,7 +11,6 @@ Install
 =======
 
 - add 'multi_option_filters' to your INSTALLED_APPS
-- add ``(r'^dynamicforms/', include('dynamicforms.urls'))`` to your ``urls.py``
 - In your app's admin.py add
 		
 		from multi_option_filters.filter import MultipleOptionRelatedFieldListFilter
