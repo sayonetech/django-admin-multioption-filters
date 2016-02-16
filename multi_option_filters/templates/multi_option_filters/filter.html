@@ -1,0 +1,24 @@
+{% load i18n %}
+<h3>{% blocktrans with filter_title=title %} By {{ filter_title }} {% endblocktrans %}</h3>
+<div class="multi-filter-div">
+<ul class="filter-choices">
+{% for choice in choices %}
+    {% if choice.display == "All" %}
+    <li{% if choice.selected %} class="selected"{% endif %}>
+    <a href="{{ choice.query_string|iriencode }}">{{ choice.display }}</a></li>
+    {% else %}
+    <li><input type="checkbox" value="{{ choice.query_string }}" name="{{ choice.lookup_kwarg }}" {% if choice.selected %}checked{% endif %}>{{ choice.display }}</li>
+    {% endif %}
+{% endfor %}
+</ul>
+   <form method="GET" action="" class="multi-filter-form">
+   <input type="hidden" name="{{ spec.lookup_kwarg }}" class="lookup-field">
+   {% for other_field in spec.other_fields %}
+    <input type="hidden" name="{{ other_field.lookup_kwarg }}" value="{{ other_field.value }}">
+    {% endfor %}
+    <p class="submit-row">
+    <input type="submit" value="{% trans 'Search' %}">
+    </p>
+    </form>
+</div>
+
