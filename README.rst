@@ -16,23 +16,23 @@ Example Usage
 =======
 
 - models.py
-				class Author(models.Model):
-						name = models.CharField('Name', max_length=50)
+	class Author(models.Model):
+			name = models.CharField('Name', max_length=50)
 
-						def __unicode__(self):
-								return '%s' %self.name
+			def __unicode__(self):
+					return '%s' %self.name
 
-						class Meta:
-								verbose_name = "Author"
-								verbose_name_plural = "Authors"
+			class Meta:
+					verbose_name = "Author"
+					verbose_name_plural = "Authors"
 
-				class Book(models.Model):
-						name = models.CharField('Name', max_length=50)
-						author = models.ForeignKey(Author, verbose_name='Author')
+	class Book(models.Model):
+			name = models.CharField('Name', max_length=50)
+			author = models.ForeignKey(Author, verbose_name='Author')
 
 
-						def __unicode__(self):
-								return '%s' %self.name
+			def __unicode__(self):
+					return '%s' %self.name
         
 - admin.py
 		
