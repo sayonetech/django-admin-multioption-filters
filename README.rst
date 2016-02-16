@@ -28,6 +28,13 @@ Example Usage
         class Meta:
             verbose_name = "Author"
             verbose_name_plural = "Authors"
-        
+
+
+    class Book(models.Model):
+        name = models.CharField('Name', max_length=50)
+        author = models.ForeignKey(Author, verbose_name='Author')
+
+        def __unicode__(self):
+            return '%s' %self.name        
 
 
