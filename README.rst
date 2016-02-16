@@ -44,13 +44,13 @@ Example Usage
 		from .models import Book
 		
     class BookAdmin(admin.ModelAdmin):
-    list_filter = (('author', MultipleOptionRelatedFieldListFilter),)
-    list_display = ('__unicode__', 'author')
-    class Media:
-        js = (
-            '/static/multi_option_filters/multi-option-filter-admin.js',
-        )
-    
+		  list_filter = (('author', MultipleOptionRelatedFieldListFilter),)
+		  list_display = ('__unicode__', 'author')
+		  class Media:
+		      js = (
+		          '/static/multi_option_filters/multi-option-filter-admin.js',
+		      )
+		  
     admin.site.register(Book, BookAdmin)
         
 
