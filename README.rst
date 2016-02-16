@@ -11,6 +11,7 @@ Install
 =======
 
 - add 'multi_option_filters' to your INSTALLED_APPS
+- run collectstatic. Make sure multi-option-filter-admin.js is serverd.
 
 Example Usage
 =======
