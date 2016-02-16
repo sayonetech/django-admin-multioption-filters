@@ -63,4 +63,7 @@ Example Usage
 		  
     admin.site.register(Book, BookAdmin)
 
+.. image:: https://raw.githubusercontent.com/sayonetech/django-admin-multioption-filters/master/screehshots/multifilter.png
+
+
 
