@@ -37,7 +37,7 @@ Example Usage
         def __unicode__(self):
             return '%s' %self.name
     
-		# admin.py
+    # myapp/admin.py
     # =======
 		
     from multi_option_filters.filter import MultipleOptionRelatedFieldListFilter
