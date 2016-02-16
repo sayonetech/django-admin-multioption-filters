@@ -31,21 +31,31 @@ Example Usage
 
 
     class Book(models.Model):
+        PAPERBACK = 'Paperback'
+        HARDCOVER = 'Hardcover'
+        AUDIO_CD = 'AudioCD'
+
+        TYPE_CHOICES = (
+            (PAPERBACK, 'Paper back'),
+            (HARDCOVER, 'Hard cover'),
+            (AUDIO_CD, 'Audio CD')
+        )
         name = models.CharField('Name', max_length=50)
         author = models.ForeignKey(Author, verbose_name='Author')
-
+        type = models.CharField(max_length=20, choices=TYPE_CHOICES)
+        
         def __unicode__(self):
             return '%s' %self.name
     
     # myapp/admin.py
     # =======
 		
-    from multi_option_filters.filter import MultipleOptionRelatedFieldListFilter
+    from multi_option_filters.filter import MultipleOptionRelatedFieldListFilter, MultipleOptionFilter
     from .models import Book
 		
     class BookAdmin(admin.ModelAdmin):
-        list_filter = (('author', MultipleOptionRelatedFieldListFilter),)
-        list_display = ('__unicode__', 'author')
+        list_filter = (('author', MultipleOptionRelatedFieldListFilter), ('type', MultipleOptionFilter))
+        list_display = ('__unicode__', 'author', 'type')
         class Media:
             js = (
                 '/static/multi_option_filters/multi-option-filter-admin.js',
