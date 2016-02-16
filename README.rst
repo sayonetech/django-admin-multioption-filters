@@ -15,7 +15,10 @@ Install
 Example Usage
 =======
 
-- models.py
+.. code:: python
+
+		# myapp/models.py
+		# ============
     class Author(models.Model):
 		    name = models.CharField('Name', max_length=50)
 
@@ -34,7 +37,8 @@ Example Usage
         def __unicode__(self):
 		        return '%s' %self.name
         
-- admin.py
+		# admin.py
+    # =======
 		
 		from multi_option_filters.filter import MultipleOptionRelatedFieldListFilter
 		from .models import Book
@@ -50,4 +54,4 @@ Example Usage
     admin.site.register(Book, BookAdmin)
         
 
-.. vim: ft=rst
+
